@@ -60,10 +60,7 @@ router.get('/pages/:page', (req, res) => { // get request with pagination - note
     users.getAll()
         .then(data => {
             const result = data.slice(startIndex, endIndex);
-            const sortedResult = result.sort((a, b) => {
-                return a.Username > b.Username;
-            }); 
-            res.send(sortedResult)
+            res.send(result)
         })
         .catch(err => next(err))
 
